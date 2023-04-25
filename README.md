@@ -5,5 +5,5 @@ Source code of "Clock Quest" game, the game can be play for free - <a href="http
 The game was made with Godot 3.5.1
 # License
 The source code is available under MIT license
-# Devlog
+# Developer Log
 Mobile support - for mobile support, please open Projects settings -> InputMap -> left_click > All Device
