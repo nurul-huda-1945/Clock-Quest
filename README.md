@@ -6,4 +6,5 @@ The game was made with Godot 3.5.1
 # License
 The source code is available under MIT license
 # Developer Log
-Mobile support - for mobile support, please open Projects settings -> InputMap -> left_click > All Device
+Mobile support - Open Projects settings -> InputMap -> left_click > All Device
+Increasing the browser window graphic - Open Projects settings -> Window -> Allow hiDPI & Open Projects settings -> Window -> Mode ( 2d )
