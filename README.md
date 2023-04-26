@@ -1,4 +1,6 @@
 # Clock Quest
+<img src="https://img.itch.zone/aW1hZ2UvMjAxOTM1Ni8xMTk2Nzc2Ni5qcGc=/original/VLc8Wj.jpg">
+<br>
 Source code of <b>Clock Quest</b> game, the game can be play for free - <a href="https://running-developer.itch.io/clock-quest">running-developer.itch.io/clock-quest</a>, this game was made for <a href="https://itch.io/jam/gamedevjs-2023">GamedevJs 2023</a>
 <br>
 <br>
