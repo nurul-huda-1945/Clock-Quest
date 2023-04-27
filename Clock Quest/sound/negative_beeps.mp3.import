@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/negative_beeps.mp3-e0a1a7c04eec1c615c2333865951d4c4.mp3str"
+
+[deps]
+
+source_file="res://sound/negative_beeps.mp3"
+dest_files=[ "res://.import/negative_beeps.mp3-e0a1a7c04eec1c615c2333865951d4c4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

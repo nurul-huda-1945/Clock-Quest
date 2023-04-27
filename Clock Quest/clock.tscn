@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://clock.gd" type="Script" id=1]
+[ext_resource path="res://image/clock.png" type="Texture" id=2]
+[ext_resource path="res://image/laser.png" type="Texture" id=3]
+[ext_resource path="res://sound/clock's hand.wav" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("clockwise_center:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 40.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "hovered"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "second"
+length = 9.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("clockwise_center:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1, 1.2, 2, 2.2, 3, 3.2, 4, 4.2, 5, 5.2, 6, 6.2, 7, 7.2, 8, 8.2, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 40.0, 40.0, 80.0, 80.0, 120.0, 120.0, 160.0, 160.0, 200.0, 200.0, 240.0, 240.0, 280.0, 280.0, 320.0, 320.0, 360.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "unhovered"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 71.0634
+
+[sub_resource type="Animation" id=8]
+resource_name = "hovered"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "unhovered"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "clok's hand"
+loop = true
+step = 0.05
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "clokcs_hand"
+} ]
+}
+
+[node name="clock" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="clock_cover" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="clockwise_center" type="Node2D" parent="."]
+rotation = 0.698132
+
+[node name="clockwise" type="Sprite" parent="clockwise_center"]
+position = Vector2( 0, -22 )
+scale = Vector2( 0.203107, 0.227475 )
+texture = ExtResource( 3 )
+
+[node name="clock_number_position" type="Position2D" parent="clockwise_center"]
+position = Vector2( 0, -51 )
+
+[node name="numbers" type="Node2D" parent="."]
+
+[node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 4 )
+anims/hovered = SubResource( 5 )
+anims/second = SubResource( 6 )
+anims/unhovered = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 3 )
+
+[node name="MouseHandleAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hovered = SubResource( 8 )
+anims/unhovered = SubResource( 9 )
+
+[node name="SoundAnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/clok's hand" = SubResource( 10 )
+
+[node name="Clocks Hand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[connection signal="mouse_entered" from="." to="." method="_on_clock_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_clock_mouse_exited"]
